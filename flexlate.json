@@ -14,7 +14,15 @@
   "applied_templates": [
     {
       "name": "copier-flexlate-dev-semantic-release",
-      "data": {},
+      "data": {
+        "repo_name": "copier-full-stack-app-fastapi-nextjs-terraform-aws",
+        "full_name": "Copier Full Stack App Fastapi Nextjs Terraform Aws",
+        "repo_username": "nickderobertis",
+        "short_description": "A Copier template to create a full-stack app with a FastAPI backend, NextJS frontend, and deployed on AWS with Terraform",
+        "author": "Nick DeRobertis",
+        "author_email": "derobertis.nick@gmail.com",
+        "main_branch_name": "main"
+      },
       "version": "489bd77a5689a63a072890d3b8f93d1b7be394f9",
       "add_mode": "local",
       "root": "."
