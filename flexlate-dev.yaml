@@ -3,10 +3,20 @@ commands: []
 data:
   default:
     data:
-      author: Nick DeRobertis
       full_name: copier-full-stack-app-fastapi-nextjs-terraform-aws-example
-      main_branch_name: main
       short_description: Example output for copier-full-stack-app-fastapi-nextjs-terraform-aws
+      repo_name: copier-full-stack-app-fastapi-nextjs-terraform-aws-example
+      repo_username: nickderobertis
+      application_name: App Example
+      application_slug: app-example
+      application_abbreviation: app
+      package_name: backend
+      package_folder: backend
+      main_domain: not-a-real-url.com
+      sentry_organization_slug: nick-derobertis
+      main_branch_name: main
+      author: Nick DeRobertis
+      author_email: derobertis.nick@gmail.com
     ignore: []
     folder_name: copier-full-stack-app-fastapi-nextjs-terraform-aws-example
 run_configs:
