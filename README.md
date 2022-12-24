@@ -2,6 +2,8 @@
 
 A Copier template to create a full-stack app with a FastAPI backend, NextJS frontend, and deployed on AWS with Terraform
 
+See the [example generated repo here](https://github.com/nickderobertis/copier-full-stack-app-fastapi-nextjs-terraform-aws-example).
+
 ## Development Status
 
 This project uses [semantic-release](https://github.com/semantic-release/semantic-release) for versioning.
