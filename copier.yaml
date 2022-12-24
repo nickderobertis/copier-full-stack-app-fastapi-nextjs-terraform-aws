@@ -42,7 +42,7 @@ application_slug:
 application_abbreviation:
   type: str
   help: Short abbreviation of the application, no longer than 3 characters
-  default: "{{ application_name | lower | replace(' ', '') | replace('.', '') | replace('_', '') | replace('-', '') | slice(0, 3) }}"
+  default: "{{ (application_name | lower | replace(' ', '') | replace('.', '') | replace('_', '') | replace('-', ''))[:3] }}"
 
 package_name:
   type: str
