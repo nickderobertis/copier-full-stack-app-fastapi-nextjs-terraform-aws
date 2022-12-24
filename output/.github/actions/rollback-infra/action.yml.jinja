@@ -1,3 +1,4 @@
+{%- raw %}
 name: Rollback infrastructure
 description: "Rolls back infrastructure to a given SHA."
 inputs:
@@ -28,7 +29,9 @@ runs:
       uses: actions/download-artifact@v3
       with:
         name: openapi-codegen
-        path: frontend/stackranked/lib/api/api-client
+{%- endraw %}
+        path: frontend/{{ application_slug }}/lib/api/api-client
+{%- raw %}
     - uses: ./.github/actions/modify-infra
       with:
         environment: ${{ inputs.environment }}

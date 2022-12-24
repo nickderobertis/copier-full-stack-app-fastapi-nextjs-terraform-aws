@@ -42,7 +42,8 @@ runs:
     - name: Install dependencies
       shell: bash
       run: |
-        cd ./stackranked
+        cd ./{{ package_folder }}
+{%- raw %}
         pipenv sync
     - uses: ./.github/actions/load-secrets-into-env
       with:
@@ -57,11 +58,13 @@ runs:
         cd ./infra/${{ inputs.environment }}
         # Connect to VPC via OpenVPN so migrations can be run
         ./scripts/connect-vpn.sh
-        
+
         # Actually run migrations
-        cd $orig_dir/stackranked
+{%- endraw %}
+        cd $orig_dir/{{ package_folder }}
+{%- raw %}
         pipenv run alembic ${{ inputs.command }} ${{ inputs.revision }}
-        
+
         # Disconnect VPN
         cd $orig_dir/infra/${{ inputs.environment }}
         ./scripts/disconnect-vpn.sh

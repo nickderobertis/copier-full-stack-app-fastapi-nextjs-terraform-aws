@@ -1,3 +1,4 @@
+{%- raw %}
 name: Lint Python and Run API Unit Tests
 description: "Lint Python and Run API Unit Tests"
 
@@ -33,8 +34,9 @@ runs:
         key: ${{ env.pythonLocation }}-venvs-${{ hashFiles('*-requirements.txt') }}
     - name: Install main dependencies
       shell: bash
+{%- endraw %}
       run: |
-        cd stackranked
+        cd {{ package_folder }}
         pipenv --python "3.10" sync
     - name: Install global dependencies
       shell: bash
@@ -44,12 +46,12 @@ runs:
       shell: bash
       if: steps.cache-venvs.outputs.cache-hit != 'true'
       run: |
-        PIPENV_PIPFILE=stackranked/Pipfile pipenv run nox -s venv -- create lint
+        PIPENV_PIPFILE={{ package_folder }}/Pipfile pipenv run nox -s venv -- create lint
     - name: Check code formatting and linting
       shell: bash
-      run: PIPENV_PIPFILE=stackranked/Pipfile pipenv run nox
+      run: PIPENV_PIPFILE={{ package_folder }}/Pipfile pipenv run nox
     - name: Run unit tests
       shell: bash
       run: |
-        cd stackranked
+        cd {{ package_folder }}
         pipenv run python -m pytest tests/unit

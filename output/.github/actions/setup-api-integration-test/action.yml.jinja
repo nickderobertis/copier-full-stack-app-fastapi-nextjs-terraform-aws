@@ -1,3 +1,4 @@
+{%- raw %}
 name: Sets up for API Integration Tests with Database
 description: "Sets up for API Integration Tests with Database"
 inputs:
@@ -38,9 +39,10 @@ runs:
       shell: bash
       run: |
         # TODO: Figure out how we can avoid having to explicitly reference secrets.
-        #  Pretty sure it is not working with all secrets because of the multi-line openvpn config secret 
-        printenv | grep EMAIL_ > stackranked/.env
-        printenv | grep FE_URL >> stackranked/.env
+        #  Pretty sure it is not working with all secrets because of the multi-line openvpn config secret
+{%- endraw %}
+        printenv | grep EMAIL_ > {{ package_folder }}/.env
+        printenv | grep FE_URL >> {{ package_folder }}/.env
     - name: Wait for DB to be ready
       shell: bash
       run: |

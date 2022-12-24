@@ -19,6 +19,51 @@ short_description:
   type: str
   help: Main sentence or phrase to describe the project
 
+repo_name:
+  type: str
+  help: Name of the repository
+  default: "{{ full_name | lower | replace(' ', '-') | replace('.', '') | replace('_', '-') }}"
+
+repo_username:
+  type: str
+  help: Organization or user name of the repository
+  default: nickderobertis
+
+application_name:
+  type: str
+  help: Full name of the application with formatting
+  default: "{{ full_name }}"
+
+application_slug:
+  type: str
+  help: Slug of the application, should be lowercase and hyphenated
+  default: "{{ application_name | lower | replace(' ', '-') | replace('.', '') | replace('_', '-')  }}"
+
+application_abbreviation:
+  type: str
+  help: Short abbreviation of the application, no longer than 3 characters
+  default: "{{ application_name | lower | replace(' ', '') | replace('.', '') | replace('_', '') | replace('-', '') | slice(0, 3) }}"
+
+package_name:
+  type: str
+  help: Name of the Python package for the backend
+  default: "{{ application_slug }}"
+
+package_folder:
+  type: str
+  help: Name of the Python package folder for the backend
+  default: "{{ package_name | replace('-', '_') }}"
+
+main_domain:
+  type: str
+  help: Main domain of the project, without any www or https, etc., for example abc.com
+  default: "{{ application_slug }}.com"
+
+sentry_organization_slug:
+  type: str
+  help: Slug of the Sentry organization in which the Sentry project will be created
+  default: "{{ repo_username }}"
+
 main_branch_name:
   type: str
   help: Name of the main branch
@@ -28,3 +73,8 @@ author:
   type: str
   help: Name of the primary author of the project
   default: Nick DeRobertis
+
+author_email:
+  type: str
+  help: Email of the primary author of the project
+  default: derobertis.nick@gmail.com

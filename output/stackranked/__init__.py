@@ -1,3 +1,0 @@
-"""
-StackRanked monorepo
-"""

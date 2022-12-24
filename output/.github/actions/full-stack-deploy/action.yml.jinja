@@ -1,3 +1,4 @@
+{%- raw %}
 name: Deploy infrastructure
 description: "Deploys infrastructure"
 inputs:
@@ -49,7 +50,9 @@ runs:
       uses: actions/download-artifact@v3
       with:
         name: openapi-codegen
-        path: frontend/stackranked/lib/api/api-client
+{%- endraw %}
+        path: frontend/{{ application_slug }}/lib/api/api-client
+{%- raw %}
     - uses: ./.github/actions/db-exists
       id: db-exists
       with:

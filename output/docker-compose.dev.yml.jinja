@@ -10,9 +10,9 @@ services:
     restart: always
   api:
     build:
-      context: stackranked
+      context: {{ package_folder }}
     volumes:
-      - ./stackranked:/api
+      - ./{{ package_folder }}:/api
     ports:
       - 8001:8001
     environment:

@@ -9,8 +9,10 @@ runs:
       id: cache-codegen
       uses: actions/cache@v3
       with:
-        path: frontend/stackranked/lib/api/api-client
-        key: openapi-codegen-${{ runner.os }}-${{ hashFiles('stackranked/**') }}-${{ hashFiles('openapi-generate.sh') }}
+        path: frontend/{{ application_slug }}/lib/api/api-client
+{%- raw %}
+        key: openapi-codegen-${{ runner.os }}-${{ hashFiles('{{ package_folder }}/**') }}-${{ hashFiles('openapi-generate.sh') }}
+{%- endraw %}
     - name: Build API container
       shell: bash
       if: steps.cache-codegen.outputs.cache-hit != 'true'
@@ -23,4 +25,4 @@ runs:
       uses: actions/upload-artifact@v3
       with:
         name: openapi-codegen
-        path: frontend/stackranked/lib/api/api-client
+        path: frontend/{{ application_slug }}/lib/api/api-client

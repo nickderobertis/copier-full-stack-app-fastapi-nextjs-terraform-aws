@@ -14,7 +14,7 @@ class LoggingConfig(BaseSettings):
     level: LogLevel = LogLevel.INFO
 
     class Config:
-        env_prefix = "STACKRANKED_LOG_"
+        env_prefix = "{{ package_folder | upper }}_LOG_"
 
     @validator("level", pre=True)
     def cast_log_level(cls, v):
@@ -37,7 +37,7 @@ logging.basicConfig(
     handlers=[RichHandler(rich_tracebacks=True)],
 )
 
-log = logging.getLogger("stackranked")
+log = logging.getLogger("{{ package_name }}")
 
 if __name__ == "__main__":
     log.info("info level")

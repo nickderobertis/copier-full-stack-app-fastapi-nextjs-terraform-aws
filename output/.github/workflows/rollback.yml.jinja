@@ -38,13 +38,14 @@ on:
         type: string
 
 env:
-  NETWORK_DOMAIN_NAME: stackedrank.com
-  GLOBAL_APP_NAME: stackranked
-  APP_SHORT_NAME: sr
+  NETWORK_DOMAIN_NAME: {{ main_domain }}
+  GLOBAL_APP_NAME: {{ application_slug }}
+  APP_SHORT_NAME: {{ application_abbreviation }}
   APP_STAGING_NAME_SUFFIX: staging
   NETWORK_HEALTH_CHECK_INTERVAL: 30
   NETWORK_STAGING_SUBDOMAIN: staging
-  SENTRY_ORGANIZATION_SLUG: nick-derobertis
+  SENTRY_ORGANIZATION_SLUG: {{ sentry_organization_slug }}
+{%- raw %}
 
 jobs:
   rollback-migrations:

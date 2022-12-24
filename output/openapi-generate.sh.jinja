@@ -1,4 +1,4 @@
-relative_out_path=frontend/stackranked/lib/api/api-client
+relative_out_path=frontend/{{ application_slug }}/lib/api/api-client
 
 # TODO: Remove need to set these variables to run codegen
 docker-compose -f docker-compose.yml -f docker-compose.dev.yml run --rm \
@@ -8,7 +8,7 @@ docker-compose -f docker-compose.yml -f docker-compose.dev.yml run --rm \
 
 echo "Generating TypeScript client"
 docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli generate \
-    -i /local/stackranked/app/openapi.json \
+    -i /local/{{ package_folder }}/app/openapi.json \
     -g typescript-fetch \
     -o /local/$relative_out_path \
     -c /local/ts-openapi-config.yml

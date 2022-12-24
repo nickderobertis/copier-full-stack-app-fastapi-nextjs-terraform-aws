@@ -2,11 +2,12 @@ name: Deploy Previews for PR
 on: [pull_request]
 
 env:
-  NETWORK_DOMAIN_NAME: stackedrank.com
-  GLOBAL_APP_NAME: stackranked
-  APP_SHORT_NAME: sr
+  NETWORK_DOMAIN_NAME: {{ main_domain }}
+  GLOBAL_APP_NAME: {{ application_slug}}
+  APP_SHORT_NAME: {{ application_abbreviation}}
   NETWORK_HEALTH_CHECK_INTERVAL: 30
-  SENTRY_ORGANIZATION_SLUG: nick-derobertis
+  SENTRY_ORGANIZATION_SLUG: {{ sentry_organization_slug }}
+{%- raw %}
 
 jobs:
   changes:
@@ -82,7 +83,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: openapi-codegen
-          path: frontend/stackranked/lib/api/api-client
+{%- endraw %}
+          path: frontend/{{ application_slug }}/lib/api/api-client
+{%- raw %}
       - uses: ./.github/actions/setup-terragrunt
         with:
           environment: staging
@@ -109,7 +112,9 @@ jobs:
           github-token: ${{ secrets.GH_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ steps.vercel-project-id.outputs.vercel-project-id }}
-          working-directory: ./frontend/stackranked
+{%- endraw %}
+          working-directory: ./frontend/{{ application_slug }}
+{%- raw %}
           # TODO: Getting Error! The deployment is not ready when using aliases
 #          alias-domains: |
 #            pr-{{PR_NUMBER}}.vercel.app
@@ -128,7 +133,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: openapi-codegen
-          path: frontend/stackranked/lib/api/api-client
+{%- endraw %}
+          path: frontend/{{ application_slug }}/lib/api/api-client
+{%- raw %}
       - uses: ./.github/actions/preview-terragrunt
         id: preview-terragrunt
         with:
@@ -154,7 +161,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: openapi-codegen
-          path: frontend/stackranked/lib/api/api-client
+{%- endraw %}
+          path: frontend/{{ application_slug }}/lib/api/api-client
+{%- raw %}
       - uses: ./.github/actions/preview-terragrunt
         id: preview-terragrunt
         with:
@@ -179,7 +188,7 @@ jobs:
         id: urls-and-env
         shell: bash
         run: |
-          # Get the fe-url and api-url from either the fe-preview job, the api-preview job, 
+          # Get the fe-url and api-url from either the fe-preview job, the api-preview job,
           # or the infra-preview job, whichever is defined
           FE_URL=${{ needs.fe-preview.outputs.fe-url }}
           API_URL=${{ needs.fe-preview.outputs.api-url }}

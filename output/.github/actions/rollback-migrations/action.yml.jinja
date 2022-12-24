@@ -1,3 +1,4 @@
+{%- raw %}
 name: Rollback migrations
 description: "Rolls back migrations to a given SHA."
 inputs:
@@ -35,7 +36,9 @@ runs:
     - name: Install dependencies
       shell: bash
       run: |
-        cd ./stackranked
+{%- endraw %}
+        cd ./{{ package_folder }}
+{%- raw %}
         pipenv sync
     - uses: ./.github/actions/load-secrets-into-env
       with:
@@ -47,7 +50,9 @@ runs:
       id: get-latest-revision
       shell: bash
       run: |
-        cd ./stackranked
+{%- endraw %}
+        cd ./{{ package_folder }}
+{%- raw %}
         revision=$(PIPENV_VERBOSITY=-1 pipenv run --quiet ./alembic/scripts/latest-head.sh)
         echo "::set-output name=revision::$revision"
     - uses: actions/checkout@v3

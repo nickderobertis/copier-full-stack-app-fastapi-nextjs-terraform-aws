@@ -2,16 +2,16 @@
 # Sphinx configuration is in the docsrc folder
 
 # Main package name
-PACKAGE_NAME = "stackranked"
+PACKAGE_NAME = "{{ package_name }}"
 
 # Directory name of package
-PACKAGE_DIRECTORY = "stackranked"
+PACKAGE_DIRECTORY = "{{ package_directory }}"
 
 # Name of Repo
-REPO_NAME = "stackranked"
+REPO_NAME = "{{ repo_name }}"
 
 # Github username of the user which owns the repo
-REPO_USERNAME = "nickderobertis"
+REPO_USERNAME = "{{ repo_username }}"
 
 # List of maintainers of package, by default the same user which owns the repo
 # Pull requests raised by these maintainers without the "no auto merge" label will be automatically merged
@@ -20,7 +20,7 @@ REPO_MAINTAINERS = [
 ]
 
 # Short description of the package
-PACKAGE_SHORT_DESCRIPTION = "StackRanked monorepo"
+PACKAGE_SHORT_DESCRIPTION = "{{ short_description }}"
 
 # Long description of the package for PyPI
 # Set to 'auto' to use README.md as the PyPI description
@@ -28,10 +28,10 @@ PACKAGE_SHORT_DESCRIPTION = "StackRanked monorepo"
 PACKAGE_DESCRIPTION = "auto"
 
 # Author
-PACKAGE_AUTHOR = "Nick DeRobertis"
+PACKAGE_AUTHOR = "{{ package_author }}"
 
 # Author email
-PACKAGE_AUTHOR_EMAIL = "derobertis.nick@gmail.com"
+PACKAGE_AUTHOR_EMAIL = "{{ author_email }}"
 
 # Name of license for package
 PACKAGE_LICENSE = "MIT"
