@@ -1,0 +1,5 @@
+[tool.black]
+include = 'stackranked.*\.pyi?$|tests.*\.pyi?$'
+
+[tool.isort]
+profile = "black"

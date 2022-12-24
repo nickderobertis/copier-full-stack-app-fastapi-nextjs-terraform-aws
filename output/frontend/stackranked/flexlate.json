@@ -1,0 +1,17 @@
+{
+  "template_sources": [],
+  "applied_templates": [
+    {
+      "name": "copier-nextjs",
+      "data": {
+        "package_name": "stackranked",
+        "full_name": "StackRanked",
+        "short_description": "StackRanked Next.js web frontend",
+        "author": "Nick DeRobertis"
+      },
+      "version": "c7083cd455c511b4a4e8a7835baa2502a63e25d9",
+      "add_mode": "local",
+      "root": "."
+    }
+  ]
+}

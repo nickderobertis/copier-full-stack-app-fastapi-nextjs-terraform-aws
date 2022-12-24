@@ -1,0 +1,51 @@
+{
+  "template_sources": [
+    {
+      "name": "copier-pypi-sphinx-flexlate",
+      "path": "https://github.com/nickderobertis/copier-pypi-sphinx-flexlate",
+      "type": "copier",
+      "version": "620a852e19914fa9df217973f60e9a185ba7797e",
+      "git_url": "https://github.com/nickderobertis/copier-pypi-sphinx-flexlate",
+      "target_version": null,
+      "render_relative_root_in_output": ".",
+      "render_relative_root_in_template": "{{ repo_name }}"
+    },
+    {
+      "name": "copier-nextjs",
+      "path": "https://github.com/nickderobertis/copier-nextjs",
+      "type": "copier",
+      "version": "c7083cd455c511b4a4e8a7835baa2502a63e25d9",
+      "git_url": "https://github.com/nickderobertis/copier-nextjs",
+      "target_version": null,
+      "render_relative_root_in_output": ".",
+      "render_relative_root_in_template": "output"
+    }
+  ],
+  "applied_templates": [
+    {
+      "name": "copier-pypi-sphinx-flexlate",
+      "data": {
+        "package_name": "stackranked",
+        "package_directory": "stackranked",
+        "full_name": "StackRanked",
+        "repo_name": "stackranked",
+        "repo_username": "nickderobertis",
+        "short_description": "StackRanked monorepo",
+        "main_branch_name": "main",
+        "package_author": "Nick DeRobertis",
+        "author_email": "derobertis.nick@gmail.com",
+        "google_analytics_id": "",
+        "os_support": [
+          "ubuntu"
+        ],
+        "minimum_python_version": "3.10",
+        "topics": [],
+        "logo_url": "",
+        "install_packages": ""
+      },
+      "version": "620a852e19914fa9df217973f60e9a185ba7797e",
+      "add_mode": "local",
+      "root": "."
+    }
+  ]
+}
