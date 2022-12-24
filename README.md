@@ -15,7 +15,10 @@ steps to get everything deployed correctly:
 3. Create a Google account for the e2e user
 4. Create a Google account for the system email user
 5. Create an AWS root account and an IAM user for the application
-6. Fill out `.env` and `infra/.env`
+6. Install and set up `direnv` if not already installed
+7. `cd` into the repo directory and run `direnv allow`, then `cd` into the `infra` directory
+   and run `direnv allow` again
+8. Fill out `.env` and `infra/.env`
 
 ## Development Status
 
