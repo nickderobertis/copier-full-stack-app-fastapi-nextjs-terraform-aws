@@ -16,5 +16,5 @@ async def send_single(to: str, subject: str, body: str) -> None:
 
 if __name__ == "__main__":
     asyncio.run(
-        send_single("derobertis.nick@gmail.com", "Test Email", "This is a test")
+        send_single("{{ author_email }}", "Test Email", "This is a test")
     )

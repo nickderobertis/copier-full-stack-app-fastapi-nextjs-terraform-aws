@@ -75,15 +75,16 @@ jobs:
     outputs:
       fe-url: ${{ steps.deploy-vercel-preview.outputs.preview-url }}
       # Always use staging API for FE previews
-      api-url: https://api-staging.stackedrank.com
-      monitoring-url: https://monitoring-staging.stackedrank.com
+{%- endraw %}
+      api-url: https://api-staging.{{ main_domain }}
+      monitoring-url: https://monitoring-staging.{{ main_domain }}
     steps:
       - uses: actions/checkout@v3
       - name: Retrieve OpenAPI codegen files
         uses: actions/download-artifact@v3
         with:
           name: openapi-codegen
-{%- endraw %}
+
           path: frontend/{{ application_slug }}/lib/api/api-client
 {%- raw %}
       - uses: ./.github/actions/setup-terragrunt
