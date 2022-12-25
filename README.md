@@ -10,15 +10,54 @@ After creating the application from the template, you will need to complete the 
 steps to get everything deployed correctly:
 
 1. Create a Vercel account if you don't have one already and generate an API key
-2. Create a Google Cloud account if you don't have one already and generate a client id,
+2. Create a [Google Cloud account](https://console.developers.google.com/) if you don't have one already and generate a client id,
    client secret, and JWT secret
+   - Create a project for the application, if one does not exist
+   - Go to Credentials -> Create Credentials -> OAuth Client ID
+   - Select Web Application
+   - Add `http://localhost:3000`, `https://<insert main domain>`, and
+     `https://staging.<insert main domain>` as authorized JavaScript origins
+   - Add the same domains but with `/auth/google` as authorized redirect URIs,
+     e.g. `https://staging.<insert main domain>/auth/google`
+   - Go to "OAuth consent screen" in the navigation menu
+   - Select "External" and add the main domain as an authorized domain. Fill
+     out the rest of the form as desired
+   - On the Scopes page, add any additional scopes you would like to gain access to during the OAuth flow. If you only want Google login, you can skip this step.
 3. Create a Google account for the e2e user
-4. Create a Google account for the system email user
-5. Create an AWS root account and an IAM user for the application
-6. Install and set up `direnv` if not already installed
-7. `cd` into the repo directory and run `direnv allow`, then `cd` into the `infra` directory
-   and run `direnv allow` again
-8. Fill out `.env` and `infra/.env`
+4. Create a Google account for the system email user and enable
+   "less secure access"
+5. Create an AWS root account and an IAM user for the application, with the following permissions:
+
+- AmazonRoute53FullAccess
+- AmazonEC2ContainerRegistryFullAccess
+- AmazonSSMFullAccess
+- AmazonEC2FullAccess
+- AWSCertificateManagerFullAccess
+- IAMFullAccess
+- AmazonECS_FullAccess
+- CloudWatchFullAccess
+- AmazonVPCFullAccess
+- AWSCloudFormationFullAccess
+- AmazonDynamoDBFullAccess
+- AmazonS3FullAccess
+- AmazonRDSFullAccess
+- AmazonSNSFullAccess
+- AmazonPrometheusFullAccess
+- AWSLambda_FullAccess
+
+6. Create a Slack user token starting with `xoxp`, and a Slack webhook URL
+
+- See the README.md in the `infra` directory for more details on setting up Slack alerts
+
+7. Createa RapidAPI account and generate an API key
+8. Install and set up `direnv` if not already installed
+9. `cd` into the repo directory and run `direnv allow`, then `cd` into the `infra` directory, then `cd` back into the root directory and into the `e2e` directory, running `direnv allow` each time prompted.
+10. Fill out `.env`, `infra/.env`, and `e2e/.env`
+11. Add secrets to the Github repo:
+
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+- `GH_TOKEN`: Personal access token
 
 ## Development Status
 
