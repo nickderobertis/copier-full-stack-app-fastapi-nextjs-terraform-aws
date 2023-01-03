@@ -49,7 +49,7 @@ steps to get everything deployed correctly:
 
 - See the README.md in the `infra` directory for more details on setting up Slack alerts
 
-7. Createa RapidAPI account and generate an API key
+7. Createa RapidAPI account and go to [Temp Mail's page](https://rapidapi.com/Privatix/api/temp-mail). Subscribe to a plan and the API key will be available from the playground.
 8. Install and set up `direnv` if not already installed
 9. `cd` into the repo directory and run `direnv allow`, then `cd` into the `infra` directory, then `cd` back into the root directory and into the `e2e` directory, running `direnv allow` each time prompted.
 10. Fill out `.env`, `infra/.env`, and `e2e/.env`
@@ -58,6 +58,12 @@ steps to get everything deployed correctly:
 - `AWS_ACCESS_KEY_ID`
 - `AWS_SECRET_ACCESS_KEY`
 - `GH_TOKEN`: Personal access token
+- `E2E_RAPID_API_KEY`: RapidAPI key
+
+12. Create the `global` environment in AWS. `cd` into the `infra` folder, and follow instructions in the README.md Setup section.
+13. Once the `global` environment is created, make a change to
+    the `infra` README.md and create a PR to trigger a preview build. Ensure that the "Deploy Previews for PR" workflow
+    runs successfully and inspect the preview build to ensure that it is working correctly.
 
 ## Development Status
 
