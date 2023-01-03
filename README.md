@@ -64,6 +64,10 @@ steps to get everything deployed correctly:
 13. Once the `global` environment is created, make a change to
     the `infra` README.md and create a PR to trigger a preview build. Ensure that the "Deploy Previews for PR" workflow
     runs successfully and inspect the preview build to ensure that it is working correctly.
+14. Once all checks are passing, merge the PR. Ensure that the destroy preview workflow runs successfully. It will also trigger a
+    job to deploy to staging and production.
+15. The deploy to staging and production will not work on the first run. If only e2e tests are failing, re-run the workflow from the
+    beginning. Re-run until it can pass.
 
 ## Development Status
 
