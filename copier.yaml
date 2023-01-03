@@ -11,6 +11,10 @@ _envops:
   variable_end_string: "}}"
   variable_start_string: "{{"
 
+_tasks:
+  - "chmod +x ./openapi-generate.sh"
+  - "chmod +x ./scripts/*"
+
 full_name:
   type: str
   help: Full name of the project with formatting
