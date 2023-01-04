@@ -59,6 +59,8 @@ steps to get everything deployed correctly:
 - `AWS_SECRET_ACCESS_KEY`
 - `GH_TOKEN`: Personal access token
 - `E2E_RAPID_API_KEY`: RapidAPI key
+- `VERCEL_API_TOKEN`: Vercel API token
+- `VERCEL_ORG_ID`: Vercel organization ID
 
 12. Create the `global` environment in AWS. `cd` into the `infra` folder, and follow instructions in the README.md Setup section.
 13. Once the `global` environment is created, make a change to
