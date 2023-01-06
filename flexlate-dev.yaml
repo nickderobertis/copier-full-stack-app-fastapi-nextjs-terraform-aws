@@ -4,7 +4,7 @@ data:
   default:
     data:
       full_name: copier-full-stack-app-fastapi-nextjs-terraform-aws-example
-      short_description: Example output for copier-full-stack-app-fastapi-nextjs-terraform-aws
+      short_description: Example output for copier-full-stack-app-fastapi-nextjs-terraform-aws. See the template at https://github.com/nickderobertis/copier-full-stack-app-fastapi-nextjs-terraform-aws
       repo_name: copier-full-stack-app-fastapi-nextjs-terraform-aws-example
       repo_username: nickderobertis
       application_name: App Example
