@@ -11,7 +11,7 @@ runs:
       with:
         path: frontend/{{ application_slug }}/lib/api/api-client
 {%- raw %}
-        key: openapi-codegen-${{ runner.os }}-${{ hashFiles('{{ package_folder }}/**') }}-${{ hashFiles('openapi-generate.sh') }}
+        key: openapi-codegen-${{ runner.os }}-${{ hashFiles({% endraw %}'{{ package_folder }}/**'{%- raw %}) }}-${{ hashFiles('openapi-generate.sh') }}
 {%- endraw %}
     - name: Build API container
       shell: bash
